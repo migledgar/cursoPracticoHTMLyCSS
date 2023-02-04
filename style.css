@@ -1,0 +1,877 @@
+/* 
+ORDEN DE ESTILOS
+1. Posicionamiento
+2. Modelo de caja (box model)
+3. Tipografia (fuentes, tamaño de fuentes, etc)
+4. Visuales (border-radius, shadow, etc)
+5. Miselanios u otros ()
+*/
+
+
+:root {
+    /*color*/
+    --bitcoin-orange: #F7931A;
+    --soft-orange: #FFE9D5;
+    --secondary-blue: #1A9AF7;
+    --soft-blue: #E7F5FF;
+    --warm-black: #201E1C;
+    --black: #282623;
+    --grey: #BABABA;
+    --off-white: #FAF8F7;
+    --just-white: #FFFFFF;
+    --grey2: #808080;
+    --lenar-bg: linear-gradient(207.8deg, #201E1C 16.69%, #F7931A 100%);
+
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 65.2%;
+    font-family: 'DM Sans', sans-serif;
+}
+
+header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* esto hace que el justify y align estén al revés */
+    justify-content: center;
+    /* alineamos en "filas" en medio (arriba a bajo) */
+    align-items: center;
+    /* alineamos en colunmas en medio (izqeuida a derecha) */
+    width: 100%;
+    min-width: 320px;
+    /* no se hará más pequeña de 320px. La más pequeña en mobile */
+    height: 334px;
+    text-align: center;
+    background: var(--lenar-bg);
+}
+
+header img {
+    width: 150px;
+    height: 24px;
+    margin-top: 60px;
+    /* align-self: center; */
+    /* Para centrar elemento dentro de un contenedor -> No hace falta porque arriba puse align-item:center; */
+}
+
+.header--title-container {
+    width: 90%;
+    min-width: 288px;
+    max-width: 900;
+    /* no crecerá más de 900px
+    estará utilizando siempre un 90% entre 288 y 900px */
+    height: 218px;
+    margin-top: 36px;
+    /* text-align: center;
+    align-self: center;
+    para alinear el item de texto pero no hace falta por el align item del contenedor */
+}
+
+.header--title-container h1 {
+    margin-bottom: 24px;
+    /* margen por debajo. Separando el h1 del p */
+    font-size: 2.4rem;
+    /* 24px. Lo vemos en figma */
+    font-weight: bold;
+    /* peso de la fuente */
+    line-height: 2.6rem;
+    /* dimensión entre lineas */
+    color: var(--just-white);
+    
+}
+
+.header--title-container p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: var(--soft-orange);
+}
+
+
+.header--title-container .header--button {
+    position: absolute;
+    left: calc(50% - 114.5px);
+    /* hacemos calculo. 50% se pone en el centro el inicio del botón. Lo que hace es restar hast que esté en el centro. Lo mejor es coger es el 50% del contenedor widht, en este caso es 229/2=114.5 */
+    top: 270px;
+    display: block;
+    margin-top: 35px;
+    padding: 15px;
+    width: 229px;
+    height: 48px;
+    background-color: var(--off-white);
+    box-shadow: 0px 4px 8px rgba(89, 73, 30, 0.16);
+    /* sombra El 16 es el pporcentaje de sombra qye viene en figma*/
+    border: none;
+    /* quitamos primero border que puede tener definido y luego metemos el otro */
+    border-radius: 4px;
+    /* borde afinado */
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    color: var(--black);
+}
+
+.header--button span {
+    /* icono */
+    display: inline-block;
+    width: 13px;
+    height: 8px;
+    margin-left: 10px;
+    background-image: url('./asset/icons/vector.svg');
+    /* con esto ponemos el icono. Si queremos salir de la carpeta es ../ 
+    la idea de esto es crear un contenedor y poner la imagen de fondo*/
+}
+
+/* SECCIÓN 2 */
+
+main {
+    width: 100%;
+    min-width: 320px;
+    height: auto;
+    /* El mismo contenido irá definiendo la altura */
+    background-color: var(--off-white);
+}
+
+.main-exchange-container {
+    width: 100%;
+    height: auto;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.main-exchange-container--title {
+    width: 90%;
+    /* En porcentaje para hacerlo responsive */
+    min-width: 288px;
+    /* es el 90% de 320px (minimo de movil y contenedor) */
+    max-width: 900px;
+    margin: 0 auto;
+    /* se pondrá en el centro siempre (arriba cero y laterales auto (ya que es 90% de ancho, coge como margen lo que falta a cada lado)) */
+
+}
+
+.main-exchange-container .backgroundImg {
+    /* primero le damos dimensiones a este contenedor ya que se usará como imagen de fondo */
+    width: 195px;
+    height: 195px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    background-image: url(./asset/images/bitcoin.svg);
+    background-size: cover;
+    /* siempre mismo tamaño */
+    background-position: center;
+    /* siempre en el centro */
+    background-repeat: no-repeat;
+    /* Que no se repita la imagen si crece mucho el display y tiene que ocupar otra */
+
+}
+
+.main-exchange-container h2 {
+    margin-bottom: 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 2.6rem;
+    text-align: center;
+    color: var(--warm-black);
+
+}
+
+.main-exchange-container p {
+    margin-bottom: 48px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    text-align: center;
+    color: #757575;
+
+}
+
+/* TABLA */
+
+/* .main-table {
+    display: flex;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+} */
+
+/* ESET SCROLL NO ME SALE ALINEADO, LO QUITO */
+
+.main-tables-container {
+   display: flex;
+   flex-direction: column;
+   /* Pongo que entre los elementos de la tabla estén alineados y con dirección a columnas. Titulo, tabla y la fecha de abajo */
+   width: 60%;
+   /* 60% del width respecto al contenedor que lo tiene del 100% */
+   justify-content: center;
+   margin: 0 auto 40px auto;
+   /* 0 margen por arriba pero coge margen izqeuida/derecha proporcional */
+   min-width: 320px;
+   max-width: 321px;
+   /* chapuza que hice para que no se agrandara */
+   text-align: left;
+    
+}
+
+.main-tables-container .main-table-container--title {
+    margin: 0 auto 12px auto;
+    text-align: left;
+    padding-left: 75px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 2.3rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--bitcoin-orange);
+
+}
+
+.main-tables-container .main-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* creamos un grid de 2 columnas */
+    gap: 6px;
+    width: 60%;
+    margin: 0 auto 0 auto;
+    padding: 10px 12px;
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+
+.main-tables-container .main-grid-container .main-grid--child {
+
+    font-size: 1.6rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    color: #B5B0AC;
+}
+
+.main-tables-container .main-grid-container .main-grid--child-value {
+    
+    font-size: 1.4rem;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    color: #757575;
+}
+
+.main-tables-container .main-grid-container .main-grid--child-value .down {
+    display: inline-block;
+    width: 14px;
+    height: 12px;
+    margin-left: 8px ;
+    background-image: url(./asset/icons/trendingdown.svg);
+    background-repeat: no-repeat;
+}
+
+/* copio lo de arriba */
+.main-tables-container .main-grid-container .main-grid--child-value .up {
+    display: inline-block;
+    width: 14px;
+    height: 12px;
+    margin-left: 8px ;
+    background-image: url(./asset/icons/trendingup.svg);
+    background-repeat: no-repeat;
+}
+
+.main-tables-container .main-rable-container--update {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    width: 55%;
+    /* 55% del 60% del de arriba */
+    height: 31px;
+    line-height: 1.9rem;
+    margin: 12px auto 0 auto;
+    padding: 8px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    background: var(--soft-orange);
+    
+      
+}
+
+.main-tables-container .main-rable-container--update p {
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: var(--warm-black);
+}
+
+.main-tables-container .main-rable-container--update span {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--warm-black);
+}
+
+/* EMPIEZA SEGUNDA TABLA */
+
+.main-tables-container2 {
+    display: flex;
+    flex-direction: column;
+    /* Pongo que entre los elementos de la tabla estén alineados y con dirección a columnas. Titulo, tabla y la fecha de abajo */
+    width: 60%;
+    /* 60% del width respecto al contenedor que lo tiene del 100% */
+    justify-content: center;
+    margin: 0 auto 40px auto;
+    /* 0 margen por arriba pero coge margen izqeuida/derecha proporcional */
+    min-width: 320px;
+    max-width: 321px;
+    /* chapuza que hice para que no se agrandara */
+    text-align: left;
+     
+ }
+ 
+ .main-tables-container2 .main-table-container2--title {
+     margin: 0 auto 12px auto;
+     text-align: left;
+     padding-left: 75px;
+     font-size: 1.8rem;
+     font-weight: 700;
+     line-height: 2.3rem;
+     font-family: 'DM Sans', sans-serif;
+     color: var(--secondary-blue);
+ 
+ }
+ 
+ .main-tables-container2 .main-grid-container {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     /* creamos un grid de 2 columnas */
+     gap: 6px;
+     width: 60%;
+     margin: 0 auto 0 auto;
+     padding: 10px 12px;
+     background: #FFFFFF;
+     border-radius: 8px;
+ }
+ 
+ .main-tables-container2 .main-grid-container .main-grid--child {
+ 
+     font-size: 1.6rem;
+     font-weight: 500;
+     font-family: 'Inter', sans-serif;
+     color: #B5B0AC;
+ }
+ 
+ .main-tables-container2 .main-grid-container .main-grid--child-value {
+     
+     font-size: 1.4rem;
+     font-weight: 400;
+     font-family: 'Inter', sans-serif;
+     color: #757575;
+ }
+ 
+ 
+ .main-tables-container2 .main-rable-container--update {
+     display: flex;
+     justify-content: center;
+     align-self: center;
+     text-align: center;
+     width: 55%;
+     /* 55% del 60% del de arriba */
+     height: 31px;
+     line-height: 1.9rem;
+     margin: 12px auto 0 auto;
+     padding: 8px;
+     border-radius: 8px;
+     font-family: 'Inter', sans-serif;
+     background: #E7F5FF ;   
+       
+ }
+ 
+ .main-tables-container2 .main-rable-container--update p {
+     font-weight: 400;
+     font-size: 1.2rem;
+     color: var(--warm-black);
+ }
+ 
+ .main-tables-container2 .main-rable-container--update span {
+     font-weight: 700;
+     font-size: 1.2rem;
+     color: var(--warm-black);
+ }
+
+/* FINALIZA SEGUNDA TABLA */
+
+.main-product-detail {
+    position: relative;
+    width: 100%;
+    min-width: 320px;
+    height: auto;
+    padding: 20px 10px;
+    /* Ponemos este padding para la tarjeta que tiene espacio */
+    background-color: var(--warm-black);
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; */
+    
+}
+
+.product-detail--batata-logo {
+    position: absolute;
+    width: 45px;
+    height: 25px;
+    top: -10px;
+    /* Subir arriba la imagen. Menos ya que no quiero margen en el top */
+    left: calc(50% - 20px);
+    /* se puede hacer con flex. Pero lo hacemos con calculo.  
+    con 50% lo que hace es empezar en la mitad. Y luego le quito unos px
+    para ponerlo en el medio y que empiece por la mitad*/
+    background-image: url(./asset/icons/logo.svg);
+    background-repeat: no-repeat;
+}
+
+
+.product-detail--title {
+    width: 90%;
+    min-width: 288px;
+    height: auto;
+    /* Con esto el mismo texto delimita el crecimiento */
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+    /* Centrar texto (h2 y p) */
+}
+
+.product-detail--title h2 {
+    margin-bottom: 20px;
+    /* separar el h2 del p */
+    font-size: 2.4rem;
+    /* tamaño de la letra. Está en figma */
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    line-height: 2.6rem;
+    /* tamaño de la letra. Está en figma */
+    color: var(--just-white);
+
+}
+
+.product-detail--title p {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: var(--grey2);
+}
+
+.product-details--card {
+   /* ESTA PARTE LA COMPARTO PARA TODAS LAS TARJETAS, PERO CADA HTML TIENE 
+   SU article */
+    width: 90%;
+    min-width: 288px;
+    max-width: 400px;
+    /* para el responsive */
+    height: 152px;
+    margin: 15px auto;
+    /* para que se centre */
+    padding: 15px;
+    background-color: var(--black);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba (0, 0, 0, 0.16);
+
+}
+
+.product-details--card .clock {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    /* Los tamaños para que aparezca pero luego metemos que no se repita */
+    margin-bottom: 10px;
+    background-image: url(./asset/icons/clock.svg);
+    background-size: cover;
+    /* para redimensionar su imagen en el fondo */
+    background-position: center;
+    /* controla la imagen de fondo para centrarla */
+    background-repeat: no-repeat;
+}
+
+.product--card-title {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    line-height: 1.8rem;
+    color: var(--just-white);
+}
+
+.product--card-body {
+    font-size: 1.4rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: var(--grey2);
+}
+
+.product-details--card .eye {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    /* Los tamaños para que aparezca pero luego metemos que no se repita */
+    margin-bottom: 10px;
+    background-image: url(./asset/icons/eye.svg);
+    background-size: cover;
+    /* para redimensionar su imagen en el fondo */
+    background-position: center;
+    /* controla la imagen de fondo para centrarla */
+    background-repeat: no-repeat;
+}
+
+.product--card-title-eye {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    line-height: 1.8rem;
+    color: var(--just-white);
+}
+
+.product--card-body-eye {
+    font-size: 1.4rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: var(--grey2);
+}
+
+.product-details--card .dollar {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    /* Los tamaños para que aparezca pero luego metemos que no se repita */
+    margin-bottom: 10px;
+    background-image: url(./asset/icons/dollarsign.svg);
+    background-size: cover;
+    /* para redimensionar su imagen en el fondo */
+    background-position: center;
+    /* controla la imagen de fondo para centrarla */
+    background-repeat: no-repeat;
+}
+
+.product--card-title-dollar {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    line-height: 1.8rem;
+    color: var(--just-white);
+}
+
+.product--card-body-dollar {
+    font-size: 1.4rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: var(--grey2);
+}
+
+.product-details--card .check-circle {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    /* Los tamaños para que aparezca pero luego metemos que no se repita */
+    margin-bottom: 10px;
+    background-image: url(./asset/icons/checkcircle.svg);
+    background-size: cover;
+    /* para redimensionar su imagen en el fondo */
+    background-position: center;
+    /* controla la imagen de fondo para centrarla */
+    background-repeat: no-repeat;
+}
+
+.product--card-title-circle {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    line-height: 1.8rem;
+    color: var(--just-white);
+}
+
+.product--card-body-circle {
+    font-size: 1.4rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: var(--grey2);
+}
+
+
+.bitcoin-img-container {
+    width: 100%;
+    min-width: 320px;
+    height: 50vh;
+    /* 50% de la altura */
+    text-align: center;
+    /* centro todo el texto del contenedor */
+    background-image: url(./asset/images/bitcoinbaby.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.bitcoin-img-container h2 {
+    padding-top: 60px;
+    /* para bajar el texto un poco */
+    font-size: 2.4rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    line-height: 2.6rem;
+    color: var(--just-white);
+}
+
+.main-plans-container {
+    width: 100%;
+    min-width: 320px;
+    padding-bottom: 70px;
+    text-align: center;
+    background-color:var(--off-white);
+    
+}
+
+.plans--title {
+    width: 90%;
+    min-width: 288px;
+    /*90% de 320px */
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    /* marger del contenedor qu tiene los textos */
+}
+
+.plans--title h2 {
+    padding-top: 50px;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 2.6rem;
+    color: var(--warm-black);
+}
+
+.plans--title p {
+    padding-top: 30px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: #757575;
+}
+
+/* TARJETAS */
+
+/* Efecto de scroll horizontal con las tarjetas */
+.plans-container--slider {
+    display: flex;
+    /* Con esto hacemos que las tarjetas se pongan en horizontal */
+    gap: 10px;
+    /* Para dar espacio entre las tarjetas */
+    height: 316px;
+    /* Las tarjetas son de 250px más o menos. Solo le estamos diciendo que el
+    alto tiene que ser un poco más alto que la tarjeta */
+    overflow-x: scroll;
+    /* Hacer un scroll entre estos elementos */
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    /* Este efecto lo que hace es no poder poner la pantalla entre los
+    dos elementos. Se mueve a la más próxima. Importante la X */
+
+}
+
+
+.plans-container--card {
+    position: relative;
+    scroll-snap-align: center;
+    /* centrarlo automáticamente */
+    width: 65%;
+    /* La tarjeta no usa el 100% del espacio del otro contenedor */
+    min-width: 190px;
+    /* más o menos el 65% de 320px */
+    max-width: 300px;
+    height: 250px;
+    /* altura de la tarjeta */
+    margin: 50px auto 0;
+    /* PONER EN MEDIO TEXTO. el auto es para que ponga margen pero siempre esté en medio */
+    /* ME AFECTA AL MARGEN CON EL GAP */
+    padding: 0 15px;
+    background-color: var(--just-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(89, 73, 30, 0.16);
+} 
+
+.recommended {
+    position: absolute;
+    width: 101px;
+    height: 31px;
+    padding: 6px;
+    margin-top: -15px;
+    left: calc(50% - 50.5px);
+    /* 50.5 es la mitad de 101px */
+    font-size: 1.2rem;
+    background-color: var(--bitcoin-orange);
+    border-radius: 8px;
+    color: var(--just-white);
+}
+
+.plan-card--title {
+    padding-top: 30px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    color: var(--black);
+
+}
+
+.plan-card--price {
+    padding: 5px 0;
+    font-size: 5.2rem;
+    font-weight: 700;
+    line-height: 5.3.8rem;
+    color: var(--black);
+}
+
+.plan-card--price span {
+    font-size: 1.2rem;
+    font-weight: 500;
+    vertical-align: 25px;
+    /* Para poner el dolar arriba */
+}
+
+.plan-card--saving {
+    padding-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    color: #757575;
+}
+
+.plan-card--cta {
+    width: 150px;
+    height: 48px;
+    background-color: var(--off-white);
+    border: 2px solid var(--bitcoin-orange);
+    border-radius: 5px;
+    font-size: 1.4rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    line-height: 1.8rem;
+    color: var(--black);
+}
+
+.plan-card--cta span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(./asset/icons/arrowright.svg);
+    vertical-align: text-bottom;
+    /* Para alinear el texto dentro del boton y se alinee con el icono */
+}
+
+/* MODIFICAMOS ALGUNA CLASES DIFERNTES DE LAS OTRAS 
+TARJETAS (MUCHAS LAS HEMOS REUTILIZADO) */
+
+/* 2º TARJETA */
+.cheap {
+    position: absolute;
+    width: 101px;
+    height: 31px;
+    padding: 6px;
+    margin-top: -15px;
+    left: calc(50% - 50.5px);
+    /* 50.5 es la mitad de 101px */
+    font-size: 1.2rem;
+    background-color: var(--grey2);
+    border-radius: 8px;
+    color: var(--just-white);
+}
+
+.plan-card--cta-cheap {
+    width: 150px;
+    height: 48px;
+    background-color: var(--off-white);
+    border: 2px solid var(--grey2);
+    border-radius: 5px;
+    font-size: 1.4rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    line-height: 1.8rem;
+    color: var(--black);
+}
+
+/* 3º TARJETA */
+
+.expensive {
+    position: absolute;
+    width: 101px;
+    height: 31px;
+    padding: 6px;
+    margin-top: -15px;
+    left: calc(50% - 50.5px);
+    /* 50.5 es la mitad de 101px */
+    font-size: 1.2rem;
+    background-color: goldenrod;
+    border-radius: 8px;
+    color: var(--just-white);
+}
+
+.plan-card--cta-expensive {
+    width: 150px;
+    height: 48px;
+    background-color: var(--off-white);
+    border: 2px solid goldenrod;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    line-height: 1.8rem;
+    color: var(--black);
+}
+
+footer {
+/* SIN PUNTO PORQUE NO ES UNA CLASE. ES UN ELEMENTO */
+    display: flex;
+    width: 100%;
+    min-width: 320px;
+    height: 150px;
+    background-color: var(--bitcoin-orange);
+}
+
+footer section {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    /* Con todo esto lo que hacemos es alinearlo dentro de cada sección */
+  
+}
+
+.main-footer--social ul {
+    font-size: 1.4rem;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.8rem;
+    list-style: none;
+    /* quitar puntos */
+}
+
+.main-footer--social li {
+    margin: 10px 0;
+/* Margen entre los elementos del UL */
+}
+
+.main-footer--social a {
+    text-decoration: none;
+    /* quitar color tipo link */
+    color: var(--just-white);
+}

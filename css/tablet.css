@@ -1,0 +1,40 @@
+/* AQUÍ COLOCAMOS LOS ESTILOS DE BRAKPOINT DE TABLET */
+
+
+
+/* TABLAS DE MONEDAS Y COMISIONES
+ponerlas juntas wn horizontal */
+
+.main-table {
+    display: flex;
+    width: 930px;
+    margin: 0 auto;
+}
+
+/* TARJETAS PRODUCTOS 
+quiero ponerlo en 2 columnas */
+.product-cards-container {
+    display: flex;
+    /* este no tenía display por eso se lo pongo ahora */
+    flex-wrap: wrap;
+    /* para que se acomode */
+    width: 930px;
+    margin: 0 auto;
+
+}
+
+/* UNA IMAGEN MÁS PESADA SOLO PARA TABLET Y DESKTOP. MOVIL UNA MENOS PESADA */
+/* Hemos visto con la herramienta Ligthhouse que se cargaba el performance en movil */
+.bitcoin-img-container {
+
+    background-image: url(../asset/images/bitcoinbabyx2.jpg);
+}
+
+
+/* TARJETAS PLAN
+se descentrar a partir de esa dimensión */
+.plans-container--slider {
+    justify-content: center;
+    /* No hace poner flex porque ya lo tenemos puesto en la hoja style */
+
+}
